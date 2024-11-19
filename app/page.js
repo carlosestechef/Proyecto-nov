@@ -1,6 +1,6 @@
 //import Image from "next/image";
 import styles from "./page.module.css";
-import AboutMe from './about_me';
+/* import AboutMe from './about-me/page'; */
 
 const Page = () => {
   return (
