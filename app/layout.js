@@ -10,30 +10,43 @@ import "./globals.css";
   export default function RootLayout({ children }) {
     const [isAboutMeModalOpen, setIsAboutMeModalOpen] = useState(false);
     const [isContactFormModalOpen, setIsContactFormModalOpen] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     
     const openAboutMeModal = () => setIsAboutMeModalOpen(true);
     const closeAboutMeModal = () => setIsAboutMeModalOpen(false);
     const openContactFormModal = () => setIsContactFormModalOpen(true);
     const closeContactFormModal = () => setIsContactFormModalOpen(false);
 
+    const toggleMenu = () => setIsMenuOpen (!isMenuOpen);
+
     return (
       <html lang="es">
         <head>
           <meta charSet="UTF-8"/>
           <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-          <title>iMA SUMAC pintores del mercosur</title>
+          <title>iMA SUMAC pintores </title>
           <link rel="icon" href="/favicon.ico" />
         </head>
         <body>
-          <header>
-            <nav>
-              <ul>
-                <li className='logo'><Link href="/"><img src='/del_favcicon.jpg' alt='iM' width={40} height={30}/></Link></li>
-                <li><button className='contact' onClick={openContactFormModal}>CONTACTAME</button></li>
-                <li><button className='btn_about-me' onClick={openAboutMeModal}>HISTORIA</button></li>
-                <li><button>MAS</button></li>
+        <header>
+          <nav>
+            <div className="logo">
+              <Link href="/">
+                <Image src='/del_favcicon.jpg' alt='iM' width={40} height={30} />
+              </Link>
+            </div>
+
+            {/* Menú hamburguesa (para pantallas pequeñas) */}
+            <button className="hamburger" onClick={toggleMenu}>
+              <span className="hamburger-icon"></span>
+            </button>
+
+            <ul className={`menu ${isMenuOpen ? 'open' : ''}`}>
+              <li><button className="btn_about-me" onClick={openAboutMeModal}>HISTORIA</button></li>
+              <li><button>PROYECTOS</button></li>
               </ul>
             </nav>
+              <button className="contact-me" onClick={openContactFormModal}>CONTACTAME</button>
           </header>
 
           {/*Aquí renderizamos el contenido del Modal si está abierto  */}
@@ -63,7 +76,7 @@ import "./globals.css";
                   sizes="(max-width: 768px) 60vw, (max-width: 1024px) 30vw, 300px"
                 />
               </div>
-              <p className="description">
+              <p>
               Lorem ipsum dolor sit amet consectetur adipiscing elit sodales, est conubia himenaeos magnis parturient aliquam semper habitant, congue pellentesque natoque vestibulum ornare velit litora. Vehicula molestie massa ultrices id pharetra in aliquam, nulla dui tristique consequat ante tellus, hac purus suspendisse diam taciti erat. 
               </p>
             </div>
@@ -165,7 +178,7 @@ import "./globals.css";
                   sizes="(max-width: 768px) 60vw, (max-width: 1024px) 30vw, 300px"
                 />
               </div>
-             <p>
+             <p className='description'>
               Lorem ipsum dolor sit amet consectetur adipiscing elit sodales, est conubia himenaeos magnis parturient aliquam semper habitant,
               Lorem ipsum dolor sit amet consectetur adipiscing elit sodales, est conubia himenaeos magnis parturient aliquam semper habitant, congue pellentesque natoque vestibulum ornare velit litora. Vehicula molestie massa ultrices id pharetra in aliquam, nulla dui tristique consequat ante tellus, hac purus suspendisse diam taciti erat. 
              </p>
