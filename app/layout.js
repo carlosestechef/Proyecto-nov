@@ -1,7 +1,7 @@
 'use client'; // Indica que el componenete es del lado del cliente
 
+import Link from 'next/link';
 import React, { useState } from 'react';
-import Link from 'next/link'; /* importa los link de navegación */
 import Image from 'next/image'; /* importación para las imagenes */
 import ContactFormModal from './contact-form/page';
 import AboutMeModal from './about-me/page';
@@ -17,33 +17,33 @@ import "./globals.css";
     const openContactFormModal = () => setIsContactFormModalOpen(true);
     const closeContactFormModal = () => setIsContactFormModalOpen(false);
 
-    const toggleMenu = () => setIsMenuOpen (!isMenuOpen);
+    const toggleMenu = () => setIsMenuOpen (!isMenuOpen); /* isMenuOpen controla la visibilidad del menú */
+    const closeMenu = () => setIsMenuOpen(false); /* cierra el menu cuando seleccionamos un items */
 
     return (
       <html lang="es">
         <head>
           <meta charSet="UTF-8"/>
           <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-          <title>iMA SUMAC pintores </title>
-          <link rel="icon" href="/favicon.ico" />
+          <title>iMA SUMAC - PINTORES DEL MERCOSUR </title>
+          <link rel="icon" href="/favicon.ico"></link>
         </head>
         <body>
         <header>
           <nav>
             <div className="logo">
-              <Link href="/">
-                <Image src='/del_favcicon.jpg' alt='iM' width={40} height={30} />
-              </Link>
+                <img src='/del_favcicon.jpg' className='img-logo' alt='iM' width={40} height={30} loading='lazy'/>
             </div>
 
             {/* Menú hamburguesa (para pantallas pequeñas) */}
-            <button className="hamburger" onClick={toggleMenu}>
-              <span className="hamburger-icon"></span>
-            </button>
+            <button className="mobile-menu-icons" onClick={toggleMenu}>☰</button>
 
             <ul className={`menu ${isMenuOpen ? 'open' : ''}`}>
-              <li><button className="btn_about-me" onClick={openAboutMeModal}>HISTORIA</button></li>
-              <li><button>PROYECTOS</button></li>
+              <li><Link href="/" passHref><button onClick={closeMenu}>Inicio</button></Link></li>
+              <li><button onClick={() => { openAboutMeModal(); closeMenu(); }}>Historia</button></li>
+              <li><button onClick={closeMenu}>Proyectos</button></li>
+              <li><button onClick={closeMenu}>Servicios</button></li>
+              <li><button onClick={closeContactFormModal}>Contacto</button></li>
               </ul>
             </nav>
               <button className="contact-me" onClick={openContactFormModal}>CONTACTAME</button>
@@ -192,7 +192,7 @@ import "./globals.css";
                   <a href="https://www.instagram.com/pintordecoraciones?igsh=MTRsejczdTNnb2FiOA==" target="_blank" rel="noopener noreferrer">
                     <img src="/insta.png" alt="Instagram" width={30} height={30} />
                   </a>
-                  <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/+541154662162" target="_blank" rel="noopener noreferrer">
                     <img src="/wpp.png" alt="WhatsApp" width={30} height={30} />
                   </a>
                   <a href="mailto:tu-email@gmail.com" target="_blank" rel="noopener noreferrer">

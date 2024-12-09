@@ -8,177 +8,179 @@
 body {
   font-family: sans-serif;
   background-color: #f4f4f4;
-  padding-top: 60px;
+  padding-top: 80px;
 }
 
-header {
-  text-align: center;
-  font-size: 20px;
+nav ul li {
+  padding: 0px 10px;
+  text-align: center;  /* Asegura que el texto esté centrado dentro de cada <li> */
+}
+
+nav ul li button {
+  font-family:  Geneva, Verdana, sans-serif;
+  color: #fff;  /* Color blanco para el texto dentro de los botones o enlaces */
+  background-color: #6DBF60;  /* Color de fondo verde */
+  text-decoration: none;  /* Quitar subrayado de los enlaces */
+  font-weight: 500;  /* Peso de la fuente */
+  font-size: 15px;  /* Tamaño de fuente */
+  padding: 4px 8px;  /* Espaciado dentro de cada <li> */
+  border: none;  /* Eliminar borde del botón */
+  border-radius: 4px;  /* Bordes redondeados */
+  transition: color 0.5s ease;  /* Efecto de transición cuando el color cambie */ 
 }
 
 nav {
-  background-color: #333;
-  padding: 8px 20px;
+  background-color: #6DBF60;  /* Cambié el fondo del nav al verde #6DBF60 */
+  padding: 5px 180px;
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 1000; /* asegura que el nav quede por encima */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
-  justify-content: space-between; /* Espacio entre el logo y el menú */
-  align-items: center;
+  justify-content: space-between;  /* Espacio entre logo y menú */
+  align-items: flex-end;
+  transition: padding 0.3s ease;
+  flex-direction: row;  /* Coloca los elementos en una fila */
+  height: 70px;  /* Altura del nav */
 }
-
-      /* Estilos para el botón "contact-me" fijo */
-      .contact-me {
-        display: block;
-        position: fixed;
-        bottom: 20px;
-        right: 60px;
-        background-color: #6DBF60;
-        color: white;
-        padding: 5px 3px;
-        font-size: 14px;
-        border-radius: 5px;
-        cursor: pointer;
-        z-index: 1001;
-      }
-
-     .contact-me:hover {
-        background-color: #4c9d46;  /* Color ligeramente más oscuro cuando se pasa el mouse */
-      }
-
-      
-  
-
-nav .logo {
-  margin-right: auto;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 600;
-}
-
- /* Options Haburguer */
-    nav .hamburger {
-      display: none; /* Por defecto no se muestra en pantallas grandes */
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      padding: 5px;
-      z-index: 1100;
-    }
-   
-    nav .hamburger-icon {
-      width: 30px;
-      height: 3px;
-      background-color: #fff;
-      position: relative;
-    }
-
-    nav .hamburger-icon::before,
-    nav .hamburger-icon::after {
-      content: '';
-      width: 30px;
-      height: 3px;
-      background-color: #fff;
-      position: absolute;
-      left: 0;
-    }
-
-    nav .hamburger-icon::before {
-      top: -10px;
-    }
-
-    nav .hamburger-icon::after {
-      top: 10px;
-    }
 
 nav ul {
   list-style-type: none;
   display: flex;
-  justify-content: center;
+  justify-content: center;  /* Centra los ítems de la lista */
+  align-items: center;  /* Alinea los ítems al centro del nav */
   gap: 15px;
-  flex-wrap: wrap;
+  width: 100%;
+  margin: 0 ;
 }
 
-nav li {
-  padding: 5px 10px;
-}
 
-nav a {
-  color: #333;
+.contact-me {
+  display: block;
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
   background-color: #6DBF60;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 14px;
-  padding: 8px 12px;
-  border-radius: 4px;
-  transition: color 0.3s ease;
+  color: white;
+  padding: 5px 5px;
+  font-size: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1001;
 }
 
-nav button {
-  transition: all 0.4s ease; /* Agregar transición suave */
+.logo img{
+  width: 55px;
+  height: 40px;
 }
 
-nav button:hover {
-  background-color: #6DBF60;
-  transform: scale(1.2) translateY(-2px); /* Añadir un pequeño desplazamiento hacia arriba */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Añadir sombra para un efecto de profundidad */
-  cursor: pointer; /* Cambiar el cursor a pointer para indicar interactividad */
+
+/* Cambiamos el color cuando el mouse pasa por encima */
+nav ul li a:hover,
+nav ul li button:hover {
+  color: #333;  /* Cambia el color del texto cuando está hoverizado */
 }
 
-      /* Menú hamburguesa en pantallas pequeñas */
-      @media (max-width: 768px) {
+nav ul li.active a,
+nav ul li.active button {
+ 
+  color: #333;  /* Cambia el color del texto cuando el ítem está activo */
+}
 
-        .contact-me {
-          display: block;
-          position: fixed;
-          bottom: 20px;
-          right: 10px;
-          background-color: #6DBF60;
-          color: white;
-          padding: 5px 5px;
-          font-size: 11px;
-          border-radius: 5px;
-          cursor: pointer;
-          z-index: 1001;
-        }
+.modal {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
 
-        nav ul {
-          display: none;
-          flex-direction: column;
-          width: 200px;
-          text-align: left;
-          background-color: #333;
-          position: absolute;
-          top: 60px;
-          right: -200px; /* Comienza fuera de la pantalla */
-          padding: 10px 0;
-          z-index: 999;
-          box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.2);
-          transition: right 0.3s ease-out; /* Transición suave para el "desenlace" */
-        }
+.modal.open {
+  display: block;
+  opacity: 1;
+}
 
-        nav ul.open {
-          display: flex;
-          right: 0; /* Mueve el menú a la posición visible */
-        }
+/* ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 
-        nav .hamburger {
-          display: block; /* Mostrar el botón hamburguesa en pantallas pequeñas */
-        }
+/* Menú hamburguesa (para pantallas pequeñas) */
+.mobile-menu-icons {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  position: relative;
+  z-index: 1010; /* Asegura que el icono esté encima de otros elementos */
+}
 
-        nav li {
-          padding: 10px;
-          width: 100%;
-        }
+.mobile-menu-icons-icon {
+  width: 30px;
+  height: 3px;
+  background-color: #454546;
+  margin: 5px auto;
+  transition: transform 0.3s ease-in-out;
+}
 
-        nav a {
-          width: 100%;
-          text-align: left;
-          text-align: center;
-        }
-      }
+/* Animación para el icono de menú */
+.mobile-menu-icons.open .mobile-menu-icons-icon:nth-child(1) {
+  transform: translateY(8px) rotate(45deg); /* Rotar la primera línea */
+}
+
+.mobile-menu-icons.open .mobile-menu-icons-icon:nth-child(2) {
+  opacity: 0; /* Ocultar la segunda línea */
+}
+
+.mobile-menu-icons.open .mobile-menu-icons-icon:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg); /* Rotar la tercera línea */
+}
+
+/* Mostrar menú hamburguesa en pantallas pequeñas */
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 70px; /* Asegura que el menú no cubra el logo */
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding-top: 20px; /* Espaciado para separar los elementos */
+  }
+
+  nav ul.open {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(0); /* Deslizar hacia abajo */
+  }
+
+  .mobile-menu-icons {
+    display: block;
+  }
+
+  nav ul li {
+    width: 100%;
+    padding: 15px 0;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Añadir separación entre elementos */
+  }
+
+  nav ul li button {
+    font-size: 16px;
+    padding: 12px 0;
+    width: 100%; /* Hacer los botones de la misma anchura que el menú */
+    text-align: center;
+    background-color: #454546; /* Asegurarse de que el botón también tenga el color de fondo */
+  }
+
+  nav ul li button:hover {
+    color: #333;  /* Cambio de color en hover */
+    background-color: #454546; /* Cambio de color de fondo al pasar el ratón */
+  }
+}
+
+
+/* ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
 
 
 /* Contenedor de imágenes y descripción en fila */
