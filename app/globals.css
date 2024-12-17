@@ -8,7 +8,7 @@
 body {
   font-family: sans-serif;
   background-color: #f4f4f4;
-  padding-top: 80px;
+  padding-top: 5px;
 }
 
 nav ul li {
@@ -19,7 +19,7 @@ nav ul li {
 nav ul li button {
   font-family:  Geneva, Verdana, sans-serif;
   color: #fff;  /* Color blanco para el texto dentro de los botones o enlaces */
-  background-color: #6DBF60;  /* Color de fondo verde */
+  background-color: #013220;  /* Color de fondo verde */
   text-decoration: none;  /* Quitar subrayado de los enlaces */
   font-weight: 500;  /* Peso de la fuente */
   font-size: 15px;  /* Tamaño de fuente */
@@ -30,7 +30,7 @@ nav ul li button {
 }
 
 nav {
-  background-color: #6DBF60;  /* Cambié el fondo del nav al verde #6DBF60 */
+  background-color: #013220;  /* Cambié el fondo del nav al verde #013220 */
   padding: 5px 180px;
   position: fixed;
   top: 0;
@@ -61,7 +61,7 @@ nav ul {
   position: fixed;
   bottom: 20px;
   right: 10px;
-  background-color: #6DBF60;
+  background-color: #013220;
   color: white;
   padding: 5px 5px;
   font-size: 12px;
@@ -79,13 +79,7 @@ nav ul {
 /* Cambiamos el color cuando el mouse pasa por encima */
 nav ul li a:hover,
 nav ul li button:hover {
-  color: #333;  /* Cambia el color del texto cuando está hoverizado */
-}
-
-nav ul li.active a,
-nav ul li.active button {
- 
-  color: #333;  /* Cambia el color del texto cuando el ítem está activo */
+  color: #000;  /* Cambia el color del texto cuando está hoverizado */
 }
 
 .modal {

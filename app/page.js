@@ -1,14 +1,19 @@
-//import Image from "next/image";
+'use client'
+
 import styles from "./page.module.css";
-/* import AboutMe from './about-me/page'; */
 
 const Page = () => {
+
   return (
     <section className={styles.container}>
-      <h1 className={styles.title}>Bienvenido</h1>
-      <h2>Sumérgete en cada pieza y observa cómo el arte evoluciona ante tus ojos. Cada fragmento tiene una historia por contar</h2>
+      <video className={styles.video} autoPlay muted loop>
+        <source src="/proyecto_gif.mp4" type="video/mp4" />
+        Tu navegador no soporta la etiqueta del video.
+      </video>
+      <h1 className={styles.title}>iMA-SUMAC</h1>
+      <h2 className={styles.typingText}>PINTORES DEL MERCOSUR</h2>
     </section>
-   )
-  }
-  
- export default Page;
+  );
+}
+
+export default Page;

@@ -1,8 +1,79 @@
+/* page.module.css */
 .container {
-  padding: 20px;
-  color: #88201b;
- }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  text-align: center;
+  position: relative;
+}
 
-.title{
+.video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.title {
+  font-size: 3rem;
+  opacity: 0;
+  animation: fadeIn 2s forwards ;
+  
+  margin-bottom: 20px;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Efecto de escritura */
+.typingText {
   font-size: 2rem;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 3s steps(20) 1s 1 normal both; /* Definir la animación de escritura */
+}
+
+.typingText:hover, .typingText:active {
+  transform: translateY(-5px); /* Mueve el subtítulo hacia arriba */
+}
+
+/* Definición de la animación de escritura */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+
+/* Media queries para hacer el diseño responsive */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem; /* Ajusta el tamaño del título en pantallas más pequeñas */
+  }
+
+  .typingText {
+    font-size: 1.2rem; /* Ajusta el tamaño del subtítulo en pantallas más pequeñas */
+    max-width: 100%; /* Hace que el subtítulo ocupe todo el ancho disponible */
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 2rem; /* Ajusta el tamaño del título en pantallas muy pequeñas */
+  }
 }
